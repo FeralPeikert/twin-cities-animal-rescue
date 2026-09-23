@@ -55,3 +55,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadSavedInterest();
 });
+// Form validation
+
+function validateName(name) {
+  return name.trim().length >= 2;
+}
+
+function validateEmail(email) {
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailPattern.test(email);
+}
+
+function validateForm(event) {
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const nameError = document.getElementById("name-error");
+  const emailError = document.getElementById("email-error");
+
+  let formIsValid = true;
+
+  nameError.textContent = "";
+  emailError.textContent = "";
+
+  if (!validateName(nameInput.value)) {
+    nameError.textContent = "Please enter a name with at least 2 characters.";
+    formIsValid = false;
+  }
+
+  if (!validateEmail(emailInput.value)) {
+    emailError.textContent = "Please enter a valid email address.";
+    formIsValid = false;
+  }
+
+  if (!formIsValid) {
+    event.preventDefault();
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const contactForm = document.querySelector("form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", validateForm);
+  }
+});
