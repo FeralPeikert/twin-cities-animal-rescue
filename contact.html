@@ -35,7 +35,21 @@
                 about adoption? Complete the form below and let us know
                 how you would like to help.
             </p>
-        </section>
+        </section> 
+        <section>
+    <h2>How Would You Like to Help?</h2>
+
+    <label for="interest-selector">Choose an area of interest:</label>
+
+    <select id="interest-selector">
+        <option value="">Select an option</option>
+        <option value="adopt">Adoption</option>
+        <option value="foster">Fostering</option>
+        <option value="volunteer">Volunteering</option>
+    </select>
+
+    <div id="interest-result" aria-live="polite"></div>
+</section>
 
         <section class="contact-layout">
 
@@ -64,13 +78,14 @@
                         id="name"
                         name="name"
                         required>
-
+<p id="name-error" class="error-message"></p>
                     <label for="email">Email:</label>
                     <input
                         type="email"
                         id="email"
                         name="email"
                         required>
+                    <p id="email-error" class="error-message"></p>
                 </fieldset>
 
                 <fieldset>
@@ -127,5 +142,6 @@
         <p>&copy; 2026 Twin Cities Animal Rescue</p>
     </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
